@@ -1,6 +1,6 @@
 # restful-booker-restassured
 
-![CI](https://github.com/sabrinajohanson/restful-booker-restassured/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/sabrinajohanson/restful-booker-restassured/actions/workflows/ci.yml/badge.svg)](https://github.com/sabrinajohanson/restful-booker-restassured/actions/workflows/ci.yml)
 
 API tests for the Restful Booker application using **Java + Rest Assured + TestNG**.
 
