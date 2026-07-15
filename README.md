@@ -42,6 +42,12 @@ mvn test
 
 ---
 
+## Test reports
+
+Every push automatically publishes a full [Allure Report](https://sabrinajohanson.github.io/restful-booker-restassured/) with the detailed results of the test suite (suites, timeline, and per-test steps).
+
+---
+
 ## Test coverage
 
 | Method | Endpoint | Test |
