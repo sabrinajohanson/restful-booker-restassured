@@ -58,6 +58,14 @@
             <artifactId>allure-testng</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Allure Rest Assured integration -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
     </dependencies>
 
     <build>
