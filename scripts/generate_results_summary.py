@@ -16,6 +16,7 @@ def main():
     total = passed = failed = skipped = 0
     earliest_start = None
     latest_stop = None
+    failures = []
 
     for file_path in result_files:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -28,6 +29,11 @@ def main():
             passed += 1
         elif status in ("failed", "broken"):
             failed += 1
+            details = data.get("statusDetails", {})
+            failures.append({
+                "name": data.get("name", "unknown"),
+                "error_message": str(details.get("message", ""))[:300],
+            })
         elif status == "skipped":
             skipped += 1
 
@@ -50,12 +56,13 @@ def main():
         "skipped": skipped,
         "duration_seconds": duration_seconds,
         "timestamp": datetime.now(timezone.utc).isoformat(),
+        "failures": failures,
     }
 
     with open("results.json", "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)
 
-    print(f"results.json generated for {REPO_NAME}: {result}")
+    print(f"results.json generated for {REPO_NAME}: {passed}/{total} passed, {len(failures)} failure(s) recorded")
 
 
 if __name__ == "__main__":
